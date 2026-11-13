@@ -103,9 +103,11 @@ pub fn date_short(date: chrono::NaiveDate) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    static TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
 
     #[test]
     fn portuguese_date_labels_are_european() {
+        let _guard = TEST_LOCK.lock().unwrap();
         set(Lang::Pt);
         assert_eq!(month_short(3), "mar");
         assert_eq!(weekday_short(0), "seg");
@@ -116,6 +118,7 @@ mod tests {
 
     #[test]
     fn two_language_macro_remains_compatible() {
+        let _guard = TEST_LOCK.lock().unwrap();
         set(Lang::En);
         assert_eq!(crate::t!("Nederlands", "English"), "English");
         set(Lang::Nl);
