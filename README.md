@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/images/icon.png" width="112" height="112" alt="FM27 Trainer icon">
+  <img src="docs/images/icon.png" width="112" height="112" alt="FM27 Assistant PT icon">
 </p>
 
-<h1 align="center">FM27 Trainer</h1>
+<h1 align="center">FM27 Assistant PT</h1>
 
 <p align="center">
   <strong>Read your Tactical Effectiveness, let the app train your weakest areas,<br>
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="README.nl.md">Nederlands</a> ·
+  <a href="README.pt-PT.md">Português (Portugal)</a> ·\n  <a href="README.nl.md">Nederlands</a> ·
   <a href="#features">Features</a> ·
   <a href="#install">Install</a> ·
   <a href="#how-it-works">How it works</a> ·
@@ -89,7 +89,7 @@ Players who have never trained with the team yet are skipped until they have.
 
 ### Windows
 
-1. Download [FM27-Trainer-Windows.zip](../../releases/latest/download/FM27-Trainer-Windows.zip) (always the latest version), unzip it and run **FM27 Trainer.exe**. The
+1. Download [FM27-Assistant-PT-Windows.zip](../../releases/latest/download/FM27-Assistant-PT-Windows.zip) (always the latest version), unzip it and run **FM27 Assistant PT.exe**. The
    exe is not code-signed yet: if SmartScreen warns, click *More info → Run anyway*.
 2. Start FM27 as usual (or with *Start FM27* in the app) and load your save. The app reads `fm.exe` directly, so
    there is nothing to install and no module to load.
