@@ -327,13 +327,13 @@ impl App {
                 ui.label(theme::caps("Menu"));
                 ui.add_space(4.0);
                 let items = [
-                    (Page::Overview, icon::GAUGE, t!("Overzicht", "Overview")),
-                    (Page::Training, icon::BARBELL, "Training"),
-                    (Page::Planning, icon::CALENDAR_DOTS, "Planning"),
-                    (Page::Club, icon::BANK, "Club"),
-                    (Page::Squad, icon::USERS_THREE, t!("Selectie", "Squad")),
-                    (Page::Sell, icon::HANDSHAKE, "Transfers"),
-                    (Page::Settings, icon::GEAR_SIX, t!("Instellingen", "Settings")),
+                    (Page::Overview, icon::GAUGE, t!("Overzicht", "Overview", "Visão geral")),
+                    (Page::Training, icon::BARBELL, t!("Training", "Training", "Treino")),
+                    (Page::Planning, icon::CALENDAR_DOTS, t!("Planning", "Planning", "Planeamento")),
+                    (Page::Club, icon::BANK, t!("Club", "Club", "Clube")),
+                    (Page::Squad, icon::USERS_THREE, t!("Selectie", "Squad", "Plantel")),
+                    (Page::Sell, icon::HANDSHAKE, t!("Transfers", "Transfers", "Transferências")),
+                    (Page::Settings, icon::GEAR_SIX, t!("Instellingen", "Settings", "Definições")),
                 ];
                 for (p, ic, label) in items {
                     if theme::nav_item(ui, ic, label, self.page == p).clicked() {
@@ -355,11 +355,11 @@ impl App {
                         ui.set_width(ui.available_width());
                         ui.horizontal(|ui| {
                             let (c, txt) = if !agent::LIVE_SUPPORTED {
-                                (theme::TEXT_FAINT, t!("Live: alleen macOS", "Live: macOS only"))
+                                (theme::TEXT_FAINT, t!("Live: alleen macOS", "Live: macOS only", "Live: apenas macOS"))
                             } else if self.live.connected {
-                                (theme::SUCCESS, t!("Verbonden met FM27", "Connected to FM27"))
+                                (theme::SUCCESS, t!("Verbonden met FM27", "Connected to FM27", "Ligado ao FM27"))
                             } else {
-                                (theme::TEXT_FAINT, t!("Niet verbonden", "Not connected"))
+                                (theme::TEXT_FAINT, t!("Niet verbonden", "Not connected", "Não ligado"))
                             };
                             theme::status_dot(ui, c);
                             ui.label(RichText::new(txt).size(13.0).color(theme::TEXT));
@@ -399,7 +399,7 @@ impl App {
             ui.horizontal(|ui| {
                 ui.label(theme::ic(icon::PLUGS_CONNECTED).size(28.0).color(theme::ACCENT));
                 ui.vertical(|ui| {
-                    ui.label(theme::h2(t!("Verbind met Football Manager", "Connect to Football Manager")));
+                    ui.label(theme::h2(t!("Verbind met Football Manager", "Connect to Football Manager", "Ligar ao Football Manager")));
                     ui.label(theme::dim(if windows {
                         t!(
                             "De app leest FM27 rechtstreeks terwijl het draait. Je hoeft niets te installeren.",
