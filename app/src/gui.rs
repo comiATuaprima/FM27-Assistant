@@ -30,14 +30,14 @@ pub fn run() -> Result<()> {
         .unwrap_or([1320.0, 880.0]);
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
-            .with_title("FM27 Trainer")
+            .with_title("FM27 Assistant PT")
             .with_inner_size(size)
             .with_min_inner_size([1040.0, 660.0])
             .with_icon(eframe::icon_data::from_png_bytes(include_bytes!("../assets/icon/icon_256.png")).unwrap_or_default()),
         ..Default::default()
     };
     eframe::run_native(
-        "FM27 Trainer",
+        "FM27 Assistant PT",
         options,
         Box::new(|cc| {
             theme::install(&cc.egui_ctx);
@@ -135,6 +135,7 @@ impl App {
         match std::env::var("FM27_LANG").as_deref() {
             Ok("nl") => settings.lang = Lang::Nl,
             Ok("en") => settings.lang = Lang::En,
+            Ok("pt") | Ok("pt-PT") => settings.lang = Lang::Pt,
             _ => {}
         }
         i18n::set(settings.lang);
@@ -344,7 +345,7 @@ impl App {
                     ui.label(theme::faint(format!("v{}", env!("CARGO_PKG_VERSION"))));
                     ui.add_space(6.0);
                     let mut lang = self.settings.lang;
-                    if theme::segmented(ui, &mut lang, &[(Lang::Nl, "Nederlands"), (Lang::En, "English")]) {
+                    if theme::segmented(ui, &mut lang, &[(Lang::Nl, "Nederlands"), (Lang::En, "English"), (Lang::Pt, "Português")]) {
                         self.settings.lang = lang;
                         i18n::set(lang);
                         self.save_settings();
